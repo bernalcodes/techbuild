@@ -1,7 +1,6 @@
 package com.techbuild.techbuild.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +24,7 @@ public class CategoryService {
 	}
 
 	public Category getCategoryById(String id) {
-		return categoryRepository.getReferenceById(UUID.fromString(id));
+		return categoryRepository.getReferenceById(id);
 	}
 
 	public List<Category> getCategoriesByName(String name) {
@@ -39,8 +38,7 @@ public class CategoryService {
 
 	// DELETE
 	public boolean deleteCategory(Category category) {
-		UUID id = UUID.fromString(category.getId());
-		if (categoryRepository.existsById(id)) {
+		if (categoryRepository.existsById(category.getId())) {
 			categoryRepository.delete(category);
 			return true;
 		}
@@ -48,9 +46,8 @@ public class CategoryService {
 	}
 
 	public boolean deleteCategoryById(String categoryId) {
-		UUID id = UUID.fromString(categoryId);
-		if (categoryRepository.existsById(id)) {
-			categoryRepository.deleteById(id);
+		if (categoryRepository.existsById(categoryId)) {
+			categoryRepository.deleteById(categoryId);
 			return true;
 		}
 		return false;

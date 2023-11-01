@@ -1,7 +1,6 @@
 package com.techbuild.techbuild.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +24,7 @@ public class ClientService {
 	}
 
 	public Client getClientById(String id) {
-		return clientRepository.getReferenceById(UUID.fromString(id));
+		return clientRepository.getReferenceById(id);
 	}
 
 	public List<Client> getClientsByName(String name) {
@@ -47,8 +46,7 @@ public class ClientService {
 
 	// DELETE
 	public boolean deleteClient(Client client) {
-		UUID id = UUID.fromString(client.getId());
-		if (clientRepository.existsById(id)) {
+		if (clientRepository.existsById(client.getId())) {
 			clientRepository.delete(client);
 			return true;
 		}
@@ -56,9 +54,8 @@ public class ClientService {
 	}
 
 	public boolean deleteClientById(String clientId) {
-		UUID id = UUID.fromString(clientId);
-		if (clientRepository.existsById(id)) {
-			clientRepository.deleteById(id);
+		if (clientRepository.existsById(clientId)) {
+			clientRepository.deleteById(clientId);
 			return true;
 		}
 		return false;

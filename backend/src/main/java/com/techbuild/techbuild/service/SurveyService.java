@@ -1,7 +1,6 @@
 package com.techbuild.techbuild.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +24,7 @@ public class SurveyService {
 	}
 
 	public Survey getSurveyById(String id) {
-		return surveyRepository.getReferenceById(UUID.fromString(id));
+		return surveyRepository.getReferenceById(id);
 	}
 
 	// UPDATE
@@ -35,8 +34,7 @@ public class SurveyService {
 
 	// DELETE
 	public boolean deleteSurvey(Survey survey) {
-		UUID id = UUID.fromString(survey.getId());
-		if (surveyRepository.existsById(id)) {
+		if (surveyRepository.existsById(survey.getId())) {
 			surveyRepository.delete(survey);
 			return true;
 		}
@@ -44,9 +42,8 @@ public class SurveyService {
 	}
 
 	public boolean deleteSurveyById(String surveyId) {
-		UUID id = UUID.fromString(surveyId);
-		if (surveyRepository.existsById(id)) {
-			surveyRepository.deleteById(id);
+		if (surveyRepository.existsById(surveyId)) {
+			surveyRepository.deleteById(surveyId);
 			return true;
 		}
 		return false;

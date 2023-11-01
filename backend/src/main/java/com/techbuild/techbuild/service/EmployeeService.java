@@ -1,7 +1,6 @@
 package com.techbuild.techbuild.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +28,7 @@ public class EmployeeService {
 	}
 
 	public Employee getEmployeeById(String id) {
-		return employeeRepository.getReferenceById(UUID.fromString(id));
+		return employeeRepository.getReferenceById(id);
 	}
 
 	// UPDATE
@@ -39,8 +38,7 @@ public class EmployeeService {
 
 	// DELETE
 	public boolean deleteEmployee(Employee employee) {
-		UUID id = UUID.fromString(employee.getId());
-		if (employeeRepository.existsById(id)) {
+		if (employeeRepository.existsById(employee.getId())) {
 			employeeRepository.delete(employee);
 			return true;
 		}
@@ -48,9 +46,8 @@ public class EmployeeService {
 	}
 
 	public boolean deleteEmployeeById(String employeeId) {
-		UUID id = UUID.fromString(employeeId);
-		if (employeeRepository.existsById(id)) {
-			employeeRepository.deleteById(id);
+		if (employeeRepository.existsById(employeeId)) {
+			employeeRepository.deleteById(employeeId);
 			return true;
 		}
 		return false;

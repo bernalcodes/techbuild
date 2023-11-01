@@ -1,7 +1,6 @@
 package com.techbuild.techbuild.dao;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -9,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.techbuild.techbuild.domain.Client;
 
-public interface ClientRepository extends JpaRepository<Client, UUID> {
+public interface ClientRepository extends JpaRepository<Client, String> {
 	@Query("SELECT c FROM Client c WHERE c.name LIKE :name")
 	public List<Client> findByName(@Param("name") String name);
 	

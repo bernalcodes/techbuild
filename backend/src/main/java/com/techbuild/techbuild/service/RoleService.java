@@ -1,7 +1,6 @@
 package com.techbuild.techbuild.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +28,7 @@ public class RoleService {
 	}
 
 	public Role getRoleById(String id) {
-		return roleRepository.getReferenceById(UUID.fromString(id));
+		return roleRepository.getReferenceById(id);
 	}
 
 	// UPDATE
@@ -39,8 +38,7 @@ public class RoleService {
 
 	// DELETE
 	public boolean deleteRole(Role role) {
-		UUID id = UUID.fromString(role.getId());
-		if (roleRepository.existsById(id)) {
+		if (roleRepository.existsById(role.getId())) {
 			roleRepository.delete(role);
 			return true;
 		}
@@ -48,9 +46,8 @@ public class RoleService {
 	}
 
 	public boolean deleteRoleById(String id) {
-		UUID uuid = UUID.fromString(id);
-		if (roleRepository.existsById(uuid)) {
-			roleRepository.deleteById(uuid);
+		if (roleRepository.existsById(id)) {
+			roleRepository.deleteById(id);
 			return true;
 		}
 		return false;

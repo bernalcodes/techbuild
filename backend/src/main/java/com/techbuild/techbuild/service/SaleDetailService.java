@@ -1,7 +1,6 @@
 package com.techbuild.techbuild.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,11 +24,11 @@ public class SaleDetailService {
 	}
 
 	public SaleDetail getSaleDetailById(String id) {
-		return saleDetailRepository.getReferenceById(UUID.fromString(id));
+		return saleDetailRepository.getReferenceById(id);
 	}
 
 	public List<SaleDetail> getSaleDetailsBySaleId(String saleId) {
-		return saleDetailRepository.findBySaleId(UUID.fromString(saleId));
+		return saleDetailRepository.findBySaleId(saleId);
 	}
 
 	// UPDATE
@@ -39,8 +38,7 @@ public class SaleDetailService {
 
 	// DELETE
 	public boolean deleteSaleDetail(SaleDetail saleDetail) {
-		UUID id = UUID.fromString(saleDetail.getId());
-		if (saleDetailRepository.existsById(id)) {
+		if (saleDetailRepository.existsById(saleDetail.getId())) {
 			saleDetailRepository.delete(saleDetail);
 			return true;
 		}
@@ -48,9 +46,8 @@ public class SaleDetailService {
 	}
 
 	public boolean deleteSaleDetailById(String saleDetailId) {
-		UUID id = UUID.fromString(saleDetailId);
-		if (saleDetailRepository.existsById(id)) {
-			saleDetailRepository.deleteById(id);
+		if (saleDetailRepository.existsById(saleDetailId)) {
+			saleDetailRepository.deleteById(saleDetailId);
 			return true;
 		}
 		return false;

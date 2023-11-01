@@ -1,7 +1,6 @@
 package com.techbuild.techbuild.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +24,7 @@ public class PaymentTypeService {
 	}
 
 	public PaymentType getPaymentTypeById(String id) {
-		return paymentTypeRepository.getReferenceById(UUID.fromString(id));
+		return paymentTypeRepository.getReferenceById(id);
 	}
 
 	public List<PaymentType> getPaymentTypesByName(String name) {
@@ -39,8 +38,7 @@ public class PaymentTypeService {
 
 	// DELETE
 	public boolean deletePaymentType(PaymentType paymentType) {
-		UUID id = UUID.fromString(paymentType.getId());
-		if (paymentTypeRepository.existsById(id)) {
+		if (paymentTypeRepository.existsById(paymentType.getId())) {
 			paymentTypeRepository.delete(paymentType);
 			return true;
 		}
@@ -48,9 +46,8 @@ public class PaymentTypeService {
 	}
 
 	public boolean deletePaymentTypeById(String paymentTypeId) {
-		UUID id = UUID.fromString(paymentTypeId);
-		if (paymentTypeRepository.existsById(id)) {
-			paymentTypeRepository.deleteById(id);
+		if (paymentTypeRepository.existsById(paymentTypeId)) {
+			paymentTypeRepository.deleteById(paymentTypeId);
 			return true;
 		}
 		return false;

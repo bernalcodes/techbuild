@@ -1,7 +1,6 @@
 package com.techbuild.techbuild.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +32,7 @@ public class ProductService {
 	}
 
 	public Product getProductById(String id) {
-		return productRepository.getReferenceById(UUID.fromString(id));
+		return productRepository.getReferenceById(id);
 	}
 
 	// UPDATE
@@ -43,8 +42,7 @@ public class ProductService {
 
 	// DELETE
 	public boolean deleteProduct(Product product) {
-		UUID id = UUID.fromString(product.getId());
-		if (productRepository.existsById(id)) {
+		if (productRepository.existsById(product.getId())) {
 			productRepository.delete(product);
 			return true;
 		}
@@ -52,9 +50,8 @@ public class ProductService {
 	}
 
 	public boolean deleteProductById(String productId) {
-		UUID id = UUID.fromString(productId);
-		if (productRepository.existsById(id)) {
-			productRepository.deleteById(id);
+		if (productRepository.existsById(productId)) {
+			productRepository.deleteById(productId);
 			return true;
 		}
 		return false;
