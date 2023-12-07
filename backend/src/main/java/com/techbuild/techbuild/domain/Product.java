@@ -10,11 +10,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@ToString
 @Entity(name = "Product")
 @Table(name = "product")
 public class Product {
@@ -28,9 +30,6 @@ public class Product {
 
 	@Column(name = "description")
 	private String description;
-
-	@Column(name = "code")
-	private String code;
 
 	@Column(name = "price")
 	private String price;

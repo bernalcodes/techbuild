@@ -1,0 +1,179 @@
+<div th:fragment="navbar">
+	<nav class="row align-items-center">
+		<a class="col navbar-brand" th:href="@{/login}">
+			<i
+				class="bi bi-person-check"
+				style="font-size: 3rem; color: black"
+			></i>
+		</a>
+		<div class="col">
+			<div
+				class="btn-group btn-group-justified"
+				role="group"
+				aria-label="Basic outlined example"
+				style="display: grid; grid-template-columns: 1fr 1fr 1fr"
+			>
+				<a
+					th:href="@{/}"
+					type="button"
+					class="btn btn-lg btn-outline-dark"
+				>
+					Productos
+				</a>
+				<a
+					th:href="@{/order}"
+					type="button"
+					class="btn btn-lg btn-outline-dark"
+				>
+					Crear PC
+				</a>
+				<a
+					th:href="@{/}"
+					type="button"
+					class="btn btn-lg btn-outline-dark"
+				>
+					Home
+				</a>
+			</div>
+		</div>
+		<div class="col d-flex justify-content-center">
+			<div class="input-group w-75">
+				<span class="input-group-text">
+					<i class="bi bi-search"></i>
+				</span>
+				<input type="text" class="form-control" placeholder="Buscar" />
+			</div>
+		</div>
+	</nav>
+</div>
+
+<div th:fragment="navbar-user">
+	<nav class="row align-items-center">
+		<div class="col navbar-brand">
+			<a
+				class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+				role="button"
+				data-bs-toggle="dropdown"
+				aria-expanded="false"
+				style="color: black"
+			>
+				<i
+					class="bi bi-person-check"
+					style="font-size: 3rem; color: black"
+				></i>
+				<span><strong th:text="${session.user.name}"></strong></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" th:href="@{/orders}">Compras</a></li>
+				<li><a class="dropdown-item" th:href="@{/account}">Cuenta</a></li>
+				<li>
+					<a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col">
+			<div
+				class="btn-group btn-group-justified"
+				role="group"
+				aria-label="Basic outlined example"
+				style="display: grid; grid-template-columns: 1fr 1fr 1fr"
+			>
+				<a
+					th:href="@{/}"
+					type="button"
+					class="btn btn-lg btn-outline-dark"
+				>
+					Productos
+				</a>
+				<a
+					th:href="@{/order}"
+					type="button"
+					class="btn btn-lg btn-outline-dark"
+				>
+					Crear PC
+				</a>
+				<a
+					th:href="@{/}"
+					type="button"
+					class="btn btn-lg btn-outline-dark"
+				>
+					Home
+				</a>
+			</div>
+		</div>
+		<div class="col d-flex justify-content-center">
+			<div class="input-group w-75">
+				<span class="input-group-text">
+					<i class="bi bi-search"></i>
+				</span>
+				<input type="text" class="form-control" placeholder="Buscar" />
+			</div>
+		</div>
+	</nav>
+</div>
+
+<div th:fragment="navbar-admin">
+	<nav class="row align-items-center">
+		<div class="col navbar-brand">
+			<a
+				class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+				role="button"
+				data-bs-toggle="dropdown"
+				aria-expanded="false"
+				style="color: black"
+			>
+				<i
+					class="bi bi-person-check"
+					style="font-size: 3rem; color: black"
+				></i>
+				<span><strong th:text="${session.user.name}"></strong></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" th:href="@{/products}">Productos</a></li>
+				<li><a class="dropdown-item" th:href="@{/orders}">Ordenes</a></li>
+				<li><a class="dropdown-item" th:href="@{/users}">Usuarios</a></li>
+				<li>
+					<a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col">
+			<div
+				class="btn-group btn-group-justified"
+				role="group"
+				aria-label="Basic outlined example"
+				style="display: grid; grid-template-columns: 1fr 1fr 1fr"
+			>
+				<a
+					th:href="@{/}"
+					type="button"
+					class="btn btn-lg btn-outline-dark"
+				>
+					Productos
+				</a>
+				<a
+					th:href="@{/order}"
+					type="button"
+					class="btn btn-lg btn-outline-dark"
+				>
+					Crear PC
+				</a>
+				<a
+					th:href="@{/}"
+					type="button"
+					class="btn btn-lg btn-outline-dark"
+				>
+					Home
+				</a>
+			</div>
+		</div>
+		<div class="col d-flex justify-content-center">
+			<div class="input-group w-75">
+				<span class="input-group-text">
+					<i class="bi bi-search"></i>
+				</span>
+				<input type="text" class="form-control" placeholder="Buscar" />
+			</div>
+		</div>
+	</nav>
+</div>

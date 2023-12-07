@@ -17,20 +17,20 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-@Entity(name = "Category")
-@Table(name = "category")
-public class Category {
+@Entity(name = "OrderDetail")
+@Table(name = "order_detail")
+public class OrderDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(name = "id", updatable = false, nullable = false)
 	private String id;
 
-	@Column(unique = true, nullable = false, length = 100, name = "name")
-	private String name;
+	@Column(name = "order_id")
+	private String orderId;
 
-	@Column(name = "description")
-	private String description;
+	@Column(name = "product_id")
+	private String productId;
 
-	@Column(name = "status")
-	private String status;
+	@Column(name = "quantity")
+	private int quantity;
 }
